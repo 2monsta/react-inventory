@@ -36,22 +36,24 @@ class ProductTable extends Component{
   componentWillReceiveProps(newProps){
     // console.log(newProps);
     const searchTerm = newProps.searchTerm.toLowerCase();
-    var tempProduct =[]
+    const ifCheck = newProps.ifCheck;
+    var tempProduct =[];
+    var tempProduct1 = [];
     this.safeProductData.data.map((item)=>{
       var itemName = item.name.toLowerCase();
       if(itemName.indexOf(searchTerm)!=-1){
-        console.log(item);
+        // console.log(item);
         tempProduct.push(item);
       }
+      if(!ifCheck) {
+        tempProduct1.push(item);
+      }else if (ifCheck === item.inStock){
+        tempProduct1.push(item);
+      }
     });
-
-    // for(let i =0;i<this.safeProductData.data.length; i++){
-    //   var itemName = this.safeProductData.data[i].name.toLowerCase();
-    //   if(itemName.indexOf(searchTerm)!=-1){
-    //     tempProduct.push(this.safeProductData.data[i]);
-    //   }
-    // }
     this.productData.data=tempProduct;
+    this.productData.data=tempProduct1;
+
     this.formatData();
   }
 

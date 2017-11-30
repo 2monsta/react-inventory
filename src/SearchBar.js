@@ -7,10 +7,15 @@ class SearchBar extends Component{
   constructor(){
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
   }
   handleChange(event){
     console.log(event.target.value);
     this.props.onChange(event.target.value);
+  }
+
+  handleCheck(event){
+    this.props.onChecked(event.target.checked);
   }
   render(){
     const searchTerm = this.props.searchTerm;
@@ -18,7 +23,7 @@ class SearchBar extends Component{
       <form className={"search-bar"}>
         <input type="text" value={searchTerm} placeholder={"search"} onChange={this.handleChange}/>
         <div>
-          <input id={"in-stock"} type="checkbox"/>
+          <input id={"in-stock"} type="checkbox" onChange={this.handleCheck} />
           <label htmlFor="in-stock">Check me</label>
         </div>
       </form>
