@@ -6,8 +6,8 @@ import TemperatureApp from './tempApp/TemperatureApp';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  //  <App />,
-  <TemperatureApp />,
+   <App />,
+  // <TemperatureApp />,
   document.getElementById('root')
 );
 registerServiceWorker();

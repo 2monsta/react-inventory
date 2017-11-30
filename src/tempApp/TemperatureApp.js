@@ -64,10 +64,10 @@ class TemperatureApp extends Component{
       console.log(fahrenheit);
     }
     return(
-      <div>
-        <TemperatureInput scale={"f"} onChange={this.handleFahrenheitChange} temp = {celsius}/>
+      <div id={"temp-app"}>
+        <TemperatureInput scale={"f"} onChange={this.handleFahrenheitChange} temp={celsius}/>
         <TemperatureInput scale={"c"} onChange={this.handleCelciusChange} temp={fahrenheit}/>
-        <BoilingVerdict />
+        <BoilingVerdict temp={parseFloat(celsius)}/>
       </div>
     )
   }

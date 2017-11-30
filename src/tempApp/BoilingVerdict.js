@@ -8,7 +8,7 @@ import React from 'react';
 //   }
 // }
 function BoilingVerdict(props){
-  if(props.celcius >=100){
+  if(props.temp >=100){
     return (
       <h1>The water would boil</h1>
     )
